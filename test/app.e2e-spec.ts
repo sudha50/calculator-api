@@ -22,4 +22,22 @@ describe('AppController (e2e)', () => {
       .expect(200)
       .expect('Hello World!');
   });
+  it('/calculator/add (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/calculator/add?a=1&b=2')
+      .expect(200)
+      .expect(3);
+  });
+  it('/calculator/subtract (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/calculator/subtract?a=5&b=3')
+      .expect(200)
+      .expect(2);
+  });
+  it('/calculator/multiply (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/calculator/multiply?a=2&b=3')
+      .expect(200)
+      .expect(6);
+  });
 });
