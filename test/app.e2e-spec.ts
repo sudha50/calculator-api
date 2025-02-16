@@ -40,4 +40,16 @@ describe('AppController (e2e)', () => {
       .expect(200)
       .expect(6);
   });
+  it('/calculator/divide (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/calculator/divide?a=10&b=2')
+      .expect(200)
+      .expect(5);
+  });
+  it('/calculator/divide (GET) with division by zero error', () => {
+    return request(app.getHttpServer())
+      .get('/calculator/divide?a=10&b=0')
+      .expect(400)
+      .expect('Division by zero is not allowed');
+  });
 });

@@ -36,4 +36,17 @@ describe('CalculatorService', () => {
       expect(service.multiply(-1, 1)).toBe(-1);
     });
   });
+  describe('divide', () => {
+    it('should return the quotient of two numbers', () => {
+      expect(service.divide(10, 2)).toBe(5);
+      expect(service.divide(0, 2)).toBe(0);
+    });
+    it('should throw an error when dividing by zero', () => {
+      expect(() => service.divide(10, 0)).toThrowError('Division by zero is not allowed');
+    });
+    it('should handle negative numbers', () => {
+      expect(service.divide(-10, 2)).toBe(-5);
+      expect(service.divide(10, -2)).toBe(-5);
+    });
+});
 });
